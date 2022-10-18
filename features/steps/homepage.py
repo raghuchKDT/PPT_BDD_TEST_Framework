@@ -14,7 +14,7 @@ Optionspage_xpath = "//*[@id='pills-contact-tab']"
 
 @given('I launch chrome browser')
 def launch_browser(context):
-    context.driver = webdriver.Chrome(executable_path="C:\\Downloads\\chromedriver.exe")
+    context.driver = webdriver.Chrome(executable_path="C:\\chromedriver.exe")
 
 
 @when('I open PushPullTouch homepage')
