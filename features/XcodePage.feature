@@ -1,5 +1,5 @@
 Feature: Push Pull Touch Xcode Page
-  Scenario: Verify Xcode Page in Project
+  Background: common steps
     Given I launch chrome browser
     When I open PushPullTouch homepage
     And Enter username "admin" and password "admin"
@@ -7,17 +7,11 @@ Feature: Push Pull Touch Xcode Page
     Then navigate to Project Page
     Then navigate to Variant page
     Then navigate to Xcode Page
+
+  Scenario: Verify Xcode Page in Project
     Then Xcode Page should load successfully
 
-
   Scenario: Create New Xcode in Project
-    Given I launch chrome browser
-    When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
-    And click on Sign In button
-    Then navigate to Project Page
-    Then navigate to Variant page
-    Then navigate to Xcode Page
     Then create new btn for xcode
     Then Enter xcode name , customer code and description
     Then select module which you want
@@ -25,13 +19,6 @@ Feature: Push Pull Touch Xcode Page
     Then New Xcode should be successfully created
 
   Scenario: Edit  Xcode in Project
-    Given I launch chrome browser
-    When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
-    And click on Sign In button
-    Then navigate to Project Page
-    Then navigate to Variant page
-    Then navigate to Xcode Page
     Then click on xcode which you want to edit
     Then click on edit btn of xcode
     Then Edit xcode name, customer no and description
@@ -41,13 +28,6 @@ Feature: Push Pull Touch Xcode Page
 
 
   Scenario: Copy  Xcode in Project
-    Given I launch chrome browser
-    When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
-    And click on Sign In button
-    Then navigate to Project Page
-    Then navigate to Variant page
-    Then navigate to Xcode Page
     Then click on copy btn
     Then Select the xcode you want to copy
     Then Enter xcode and customer no and description
@@ -55,24 +35,10 @@ Feature: Push Pull Touch Xcode Page
     Then Xcode should be successfully copied
 
   Scenario: Delete  Xcode in Project
-    Given I launch chrome browser
-    When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
-    And click on Sign In button
-    Then navigate to Project Page
-    Then navigate to Variant page
-    Then navigate to Xcode Page
     Then click on the xcode you want to delete
     Then click on delete btn to delete the xcode
     Then verify that the xcode is deleted successfully
 
   Scenario: General properties  Xcode in Project
-    Given I launch chrome browser
-    When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
-    And click on Sign In button
-    Then navigate to Project Page
-    Then navigate to Variant page
-    Then navigate to Xcode Page
     Then click on xcode to see its general properties
     Then verify the general properties of the xcode

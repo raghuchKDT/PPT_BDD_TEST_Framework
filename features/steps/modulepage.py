@@ -15,11 +15,13 @@ btn_deletepopup_xpath = "//*[@id='btn-delete-module']"
 btn_savecopymodule_xpath = "//*[@id='btn-copy-module']"
 btn_generalprop_xpath = "//*[contains(text(),'Xcode-20')]"
 btn_copimodule_xpath = "//*[@id='btn-SaveAs']"
+module_image_path = "C:\\Downloads\\module.png"
 
 
 @then('navigate to Module page')
 def module_page(context):
     context.driver.find_element(By.LINK_TEXT, btn_module_link_text).click()
+    time.sleep(3)
 
 
 @then('Module Page should load successfully')
@@ -65,7 +67,7 @@ def set_LED_picture(context):
     time.sleep(1)
     element = context.driver.find_element(By.XPATH, "//*[@id='modImg']")
     context.driver.execute_script("arguments[0].scrollIntoView();", element)
-    context.driver.find_element(By.XPATH, click_modulepicture_xpath).send_keys("C:\\Users\\KnoDTec\\Downloads\\Picture.png")
+    context.driver.find_element(By.XPATH, click_modulepicture_xpath).send_keys(module_image_path)
 
 
 @then('click on save btn in module')

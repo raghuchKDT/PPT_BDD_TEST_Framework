@@ -16,7 +16,7 @@ btn_deletepopuplabel_xpath = "//*[@id='btn-delete-label']"
 
 @then('navigate to Project Page')
 def Project_xpath(context):
-    time.sleep(1)
+    time.sleep(2)
     context.driver.find_element(By.XPATH, btn_project_xpath).click()
 
 

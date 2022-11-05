@@ -28,7 +28,6 @@ btn_popupdeleteconlist_xpath = "//*[@id='btn-delete-connectionlist']"
 
 @then('navigate to connection list page')
 def connectionlist_page(context):
-    time.sleep(1)
     context.driver.find_element(By.XPATH, btn_conlist_xpath).click()
 
 
@@ -40,8 +39,8 @@ def Verify_conlistpage(context):
 
 @then('click on new btn to create connection list')
 def new_conlist(context):
-    time.sleep(1)
     context.driver.find_element(By.XPATH, btn_newconlist_xpath).click()
+    time.sleep(1)
 
 
 @then('Enter con list name and description')
@@ -70,13 +69,13 @@ def verify_conlist(context):
 
 @then('Click on one of the checkbox you want to edit list')
 def checkbox01_conlist(context):
-    time.sleep(1)
+    time.sleep(2)
     context.driver.find_element(By.XPATH, btn_checkbox01list_xpath).click()
 
 
 @then('click on edit btn to edit con list')
 def edit_conlist(context):
-    time.sleep(1)
+    time.sleep(2)
     context.driver.find_element(By.XPATH, btn_editlist_xpath).click()
 
 
@@ -160,7 +159,7 @@ def verify_deletedlist(context):
     assert 'Deleted Successfully.' in context.driver.page_source
 
 
-@then('click on checkmark on conlist')
+@then('click on checkmark on con_list')
 def checkmark_list(context):
     time.sleep(1)
     context.driver.find_element(By.XPATH, btn_checkmarklist_xpath).click()
@@ -242,4 +241,5 @@ def verify_deletedconlist(context):
     context.driver.find_element(By.XPATH, btn_popupdeleteconlist_xpath).click()
     time.sleep(1)
     assert 'Deleted Successfully.' in context.driver.page_source
+
 

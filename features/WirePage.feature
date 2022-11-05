@@ -1,5 +1,5 @@
 Feature: Push Pull Touch Wire Page
-  Scenario: Verify Wire Page in Project
+  Background: common steps
     Given I launch chrome browser
     When I open PushPullTouch homepage
     And Enter username "admin" and password "admin"
@@ -7,17 +7,12 @@ Feature: Push Pull Touch Wire Page
     Then navigate to Project Page
     Then navigate to Variant page
     Then navigate to wire page
+
+  Scenario: Verify Wire Page in Project
     Then Wire Page should load successfully
 
 
   Scenario: Create New wire in Project
-    Given I launch chrome browser
-    When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
-    And click on Sign In button
-    Then navigate to Project Page
-    Then navigate to Variant page
-    Then navigate to wire page
     Then click on new btn for new wire
     Then Enter wire ID and Group ID
     Then select color 1 , 2 and 3
@@ -29,13 +24,6 @@ Feature: Push Pull Touch Wire Page
 
 
   Scenario: Copy wire in Project
-    Given I launch chrome browser
-    When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
-    And click on Sign In button
-    Then navigate to Project Page
-    Then navigate to Variant page
-    Then navigate to wire page
     Then click on checkbox which you want to copy wire
     Then click on copy btn wire
     Then Enter wire id name
@@ -43,13 +31,6 @@ Feature: Push Pull Touch Wire Page
     Then Wire should be copied successfully
 
   Scenario: Edit wire in Project
-    Given I launch chrome browser
-    When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
-    And click on Sign In button
-    Then navigate to Project Page
-    Then navigate to Variant page
-    Then navigate to wire page
     Then click on checkbox which you want to edit the wire
     Then click on edit btn wire id
     Then edit wire ID and Group ID
@@ -61,26 +42,12 @@ Feature: Push Pull Touch Wire Page
     Then verify that wire is edited successfully
 
   Scenario: Delete wire in Project
-    Given I launch chrome browser
-    When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
-    And click on Sign In button
-    Then navigate to Project Page
-    Then navigate to Variant page
-    Then navigate to wire page
     Then click on checkbox which you want to delete wire
     Then click on delete btn for deleting the wire
     Then Verify if the wire is deleted successfully
 
 
   Scenario: Create New wire color scheme in Project
-    Given I launch chrome browser
-    When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
-    And click on Sign In button
-    Then navigate to Project Page
-    Then navigate to Variant page
-    Then navigate to wire page
     Then click on new btn for new wire color scheme
     Then Enter color name and abbreviation to create
     Then click on colour btn to select color
@@ -89,13 +56,6 @@ Feature: Push Pull Touch Wire Page
 
 
   Scenario: Edit wire color scheme in Project
-    Given I launch chrome browser
-    When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
-    And click on Sign In button
-    Then navigate to Project Page
-    Then navigate to Variant page
-    Then navigate to wire page
     Then click on checkbox to edit the color scheme
     Then click on edit btn to edit the color scheme
     Then Edit the name and abbreviation of the color
@@ -103,13 +63,6 @@ Feature: Push Pull Touch Wire Page
     Then Verify that the color is edited successfully
 
   Scenario: Delete wire color scheme in Project
-    Given I launch chrome browser
-    When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
-    And click on Sign In button
-    Then navigate to Project Page
-    Then navigate to Variant page
-    Then navigate to wire page
     Then click on the checkbox of color scheme you want to delete
     Then click on delete btn to delete wire color
     Then verify the wire color scheme is deleted successfully

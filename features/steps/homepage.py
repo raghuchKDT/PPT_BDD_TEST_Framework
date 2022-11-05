@@ -6,7 +6,7 @@ import time
 baseurl = "http://localhost:5003/"
 PPT_logo_xpath = "//*[@id='layoutAuthentication_content']/main/div/div[1]/div/div/div/img"
 btn_signin_xpath = "//*[contains(text(),'Sign in')]"
-Infopage_xpath =  "//*[@id='one']"
+Infopage_xpath = "//*[@id='one']"
 Recentproject_xpath = "//*[@id='pills-home-tab']"
 Versionhis_xpath = "//*[@id='pills-profile-tab']"
 Optionspage_xpath = "//*[@id='pills-contact-tab']"
@@ -15,16 +15,19 @@ Optionspage_xpath = "//*[@id='pills-contact-tab']"
 @given('I launch chrome browser')
 def launch_browser(context):
     context.driver = webdriver.Chrome(executable_path="C:\\chromedriver.exe")
+    context.driver.maximize_window()
+    time.sleep(1)
 
 
 @when('I open PushPullTouch homepage')
 def open_homepage(context):
+    time.sleep(1)
     context.driver.get(baseurl)
 
 
 @then('Verify that the logo present on the page')
 def verify_logo(context):
-    status =context.driver.find_element(By.XPATH, PPT_logo_xpath).is_displayed()
+    status = context.driver.find_element(By.XPATH, PPT_logo_xpath).is_displayed()
     assert status is True
 
 
@@ -36,6 +39,7 @@ def login_credentials(context, user, pwd):
 
 @when('click on Sign In button')
 def sign_in(context):
+    time.sleep(1)
     context.driver.find_element(By.XPATH, btn_signin_xpath).click()
 
 
@@ -68,6 +72,7 @@ def verification_projectcontents(context):
     for cell in cells:
         print(cell.text)
 
+
 @then('Verify the version history in Info Page')
 def version_history(context):
     context.driver.find_element(By.XPATH, Versionhis_xpath).click()
@@ -98,8 +103,3 @@ def option_contents(context):
     time.sleep(2)
     assert 'Graphic setup' in context.driver.page_source
     context.driver.close()
-
-
-
-
-
