@@ -1,24 +1,5 @@
 Feature: Push Pull Touch Connection List Page
-#  Background: common steps
-#    Given I launch chrome browser
-#    When I open PushPullTouch homepage
-#    And Enter username "admin" and password "admin"
-#    And click on Sign In button
-#    Then navigate to Project Page
-#    Then navigate to Variant page
-#    Then navigate to connection list page
-
-#  Scenario: Verify Connection List Page in Project
-#    Then Connection list Page should load successfully
-#
-#  Scenario: Create new  Connection List in Project
-#    Then click on new btn to create connection list
-#    Then Enter con list name and description
-#    Then click on save btn to create new con list
-#    Then New connection list should be created successfully
-#
-#
-  Scenario: Edit  Connection List in Project
+  Background: common steps
     Given I launch chrome browser
     When I open PushPullTouch homepage
     And Enter username "admin" and password "admin"
@@ -26,11 +7,30 @@ Feature: Push Pull Touch Connection List Page
     Then navigate to Project Page
     Then navigate to Variant page
     Then navigate to connection list page
-    Then Click on one of the checkbox you want to edit list
-    Then click on edit btn to edit con list
-    Then Edit the con list name and description
-    Then click on save to update the con list
-    Then Connection list should be edited successfully
+
+  Scenario: Verify Connection List Page in Project
+    Then Connection list Page should load successfully
+
+  Scenario: Create new  Connection List in Project
+    Then click on new btn to create connection list
+    Then Enter con list name and description
+    Then click on save btn to create new con list
+    Then New connection list should be created successfully
+#
+##
+#  Scenario: Edit  Connection List in Project
+#    Given I launch chrome browser
+#    When I open PushPullTouch homepage
+#    And Enter username "admin" and password "admin"
+#    And click on Sign In button
+#    Then navigate to Project Page
+#    Then navigate to Variant page
+#    Then navigate to connection list page
+#    Then Click on one of the checkbox you want to edit list
+#    Then click on edit btn to edit con list
+#    Then Edit the con list name and description
+#    Then click on save to update the con list
+#    Then Connection list should be edited successfully
 #
 #
 #  Scenario: Copy Connection List in Project
