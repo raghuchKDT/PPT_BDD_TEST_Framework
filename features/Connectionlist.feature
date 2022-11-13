@@ -8,7 +8,7 @@ Feature: Push Pull Touch Connection List Page
     Then navigate to Variant page
     Then navigate to connection list page
 
-  Scenario: Verify Connection List Page in Project
+  Scenario: Verify Connection List Page in Project2
     Then Connection list Page should load successfully
 
   Scenario: Create new  Connection List in Project
