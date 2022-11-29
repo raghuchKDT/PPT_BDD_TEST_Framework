@@ -2,7 +2,7 @@ Feature: Push Pull Touch Role Page
   Background: common steps
     Given I launch chrome browser
     When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
+    And Enter username "OCUA4" and password "1234"
     And click on Sign In button
     Then navigate to User Manager Page
     Then navigate to role Page

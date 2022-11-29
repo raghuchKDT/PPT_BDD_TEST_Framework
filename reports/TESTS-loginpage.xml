@@ -1,0 +1,90 @@
+<testsuite name="loginpage.Push Pull Touch Login and Info Page" tests="5" errors="0" failures="4" skipped="0" time="18.642049" timestamp="2022-11-17T12:58:09.809897" hostname="DESKTOP-63KQ8J5"><testcase classname="loginpage.Push Pull Touch Login and Info Page" name="Logo presence on PushPullTouch Login page" status="passed" time="4.556193"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Logo presence on PushPullTouch Login page
+    Given I launch chrome browser ... passed in 2.365s
+    When I open PushPullTouch homepage ... passed in 1.168s
+    Then Verify that the logo present on the page ... passed in 1.024s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="loginpage.Push Pull Touch Login and Info Page" name="Login to PPT with valid parameters" status="failed" time="3.55127"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: And Enter username "OCUA4" and password "1234" ... undefined in 0.000s
+Location: features/loginpage.feature:10
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Login to PPT with valid parameters
+    Given I launch chrome browser ... passed in 2.357s
+    When I open PushPullTouch homepage ... passed in 1.195s
+    And Enter username "OCUA4" and password "1234" ... undefined in 0.000s
+    And click on Sign In button ... undefined in 0.000s
+    Then User must successfully login to PPT webpage ... skipped in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="loginpage.Push Pull Touch Login and Info Page" name="Verify Info page of PPT" status="failed" time="3.645813"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: And Enter username "OCUA4" and password "1234" ... undefined in 0.000s
+Location: features/loginpage.feature:15
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Verify Info page of PPT
+    Given I launch chrome browser ... passed in 2.465s
+    When I open PushPullTouch homepage ... passed in 1.181s
+    And Enter username "OCUA4" and password "1234" ... undefined in 0.000s
+    And click on Sign In button ... undefined in 0.000s
+    Then Verify the Info Page in PPT ... skipped in 0.000s
+    Then Info Page should have recent project ... skipped in 0.000s
+    Then verify recent project page contents ... skipped in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="loginpage.Push Pull Touch Login and Info Page" name="Verify Version History in Info Page of PPT" status="failed" time="3.528667"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: And Enter username "OCUA4" and password "1234" ... undefined in 0.000s
+Location: features/loginpage.feature:22
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Verify Version History in Info Page of PPT
+    Given I launch chrome browser ... passed in 2.347s
+    When I open PushPullTouch homepage ... passed in 1.182s
+    And Enter username "OCUA4" and password "1234" ... undefined in 0.000s
+    And click on Sign In button ... undefined in 0.000s
+    Then Verify the Info Page in PPT ... skipped in 0.000s
+    Then Verify the version history in Info Page ... skipped in 0.000s
+    Then Verify the contents on version history webpage ... skipped in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="loginpage.Push Pull Touch Login and Info Page" name="Verify Options in Info Page of PPT" status="failed" time="3.360106"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: And Enter username "OCUA4" and password "1234" ... undefined in 0.000s
+Location: features/loginpage.feature:29
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Verify Options in Info Page of PPT
+    Given I launch chrome browser ... passed in 2.196s
+    When I open PushPullTouch homepage ... passed in 1.164s
+    And Enter username "OCUA4" and password "1234" ... undefined in 0.000s
+    And click on Sign In button ... undefined in 0.000s
+    Then Verify the Info Page in PPT ... skipped in 0.000s
+    Then Verify the Options page in Info page ... skipped in 0.000s
+    Then Verify the contents in options page ... skipped in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

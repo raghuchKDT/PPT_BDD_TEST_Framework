@@ -1,0 +1,132 @@
+<testsuite name="Connectionlist.Push Pull Touch Connection List Page" tests="2" errors="2" failures="0" skipped="0" time="15.750692" timestamp="2022-11-17T12:59:36.772452" hostname="DESKTOP-63KQ8J5"><testcase classname="Connectionlist.Push Pull Touch Connection List Page" name="Verify Connection List Page in Project" status="failed" time="8.007259"><error type="ElementNotInteractableException" message="Message: element not interactable&#10;  (Session info: chrome=107.0.5304.107)&#10;Stacktrace:&#10;Backtrace:&#10;&#09;Ordinal0 [0x010F1ED3+2236115]&#10;&#09;Ordinal0 [0x010892F1+1807089]&#10;&#09;Ordinal0 [0x00F965C0+812480]&#10;&#09;Ordinal0 [0x00FC6586+1009030]&#10;&#09;Ordinal0 [0x00FBC416+967702]&#10;&#09;Ordinal0 [0x00FE1A8C+1120908]&#10;&#09;Ordinal0 [0x00FBBD84+966020]&#10;&#09;Ordinal0 [0x00FE1CA4+1121444]&#10;&#09;Ordinal0 [0x00FF59E2+1202658]&#10;&#09;Ordinal0 [0x00FE18A6+1120422]&#10;&#09;Ordinal0 [0x00FBA73D+960317]&#10;&#09;Ordinal0 [0x00FBB71F+964383]&#10;&#09;GetHandleVerifier [0x0139E7E2+2743074]&#10;&#09;GetHandleVerifier [0x013908D4+2685972]&#10;&#09;GetHandleVerifier [0x01182BAA+532202]&#10;&#09;GetHandleVerifier [0x01181990+527568]&#10;&#09;Ordinal0 [0x0109080C+1837068]&#10;&#09;Ordinal0 [0x01094CD8+1854680]&#10;&#09;Ordinal0 [0x01094DC5+1854917]&#10;&#09;Ordinal0 [0x0109ED64+1895780]&#10;&#09;BaseThreadInitThunk [0x76686939+25]&#10;&#09;RtlGetFullPathName_UEx [0x773B8FD2+1218]&#10;&#09;RtlGetFullPathName_UEx [0x773B8F9D+1165]&#10;">
+<![CDATA[
+Failing step: Then navigate to connection list page ... failed in 0.092s
+Location: features/Connectionlist.feature:9
+Traceback (most recent call last):
+  File "C:\Users\KnoDTec\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\model.py", line 1329, in run
+    match.run(runner.context)
+  File "C:\Users\KnoDTec\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "features\steps\connectionlist.py", line 31, in connectionlist_page
+    context.driver.find_element(By.XPATH, btn_conlist_xpath).click()
+  File "C:\Users\KnoDTec\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 93, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Users\KnoDTec\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 410, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Users\KnoDTec\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 444, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\KnoDTec\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 249, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=107.0.5304.107)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x010F1ED3+2236115]
+	Ordinal0 [0x010892F1+1807089]
+	Ordinal0 [0x00F965C0+812480]
+	Ordinal0 [0x00FC6586+1009030]
+	Ordinal0 [0x00FBC416+967702]
+	Ordinal0 [0x00FE1A8C+1120908]
+	Ordinal0 [0x00FBBD84+966020]
+	Ordinal0 [0x00FE1CA4+1121444]
+	Ordinal0 [0x00FF59E2+1202658]
+	Ordinal0 [0x00FE18A6+1120422]
+	Ordinal0 [0x00FBA73D+960317]
+	Ordinal0 [0x00FBB71F+964383]
+	GetHandleVerifier [0x0139E7E2+2743074]
+	GetHandleVerifier [0x013908D4+2685972]
+	GetHandleVerifier [0x01182BAA+532202]
+	GetHandleVerifier [0x01181990+527568]
+	Ordinal0 [0x0109080C+1837068]
+	Ordinal0 [0x01094CD8+1854680]
+	Ordinal0 [0x01094DC5+1854917]
+	Ordinal0 [0x0109ED64+1895780]
+	BaseThreadInitThunk [0x76686939+25]
+	RtlGetFullPathName_UEx [0x773B8FD2+1218]
+	RtlGetFullPathName_UEx [0x773B8F9D+1165]
+
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Verify Connection List Page in Project
+    Given I launch chrome browser ... passed in 2.229s
+    When I open PushPullTouch homepage ... passed in 1.227s
+    And Enter username "OCUA4" and password "1234" ... passed in 0.181s
+    And click on Sign In button ... passed in 1.352s
+    Then navigate to Project Page ... passed in 2.507s
+    Then navigate to Variant page ... passed in 0.418s
+    Then navigate to connection list page ... failed in 0.092s
+    Then Connection list Page should load successfully ... skipped in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="Connectionlist.Push Pull Touch Connection List Page" name="Create new  Connection List in Project" status="failed" time="7.743433"><error type="ElementNotInteractableException" message="Message: element not interactable&#10;  (Session info: chrome=107.0.5304.107)&#10;Stacktrace:&#10;Backtrace:&#10;&#09;Ordinal0 [0x010F1ED3+2236115]&#10;&#09;Ordinal0 [0x010892F1+1807089]&#10;&#09;Ordinal0 [0x00F965C0+812480]&#10;&#09;Ordinal0 [0x00FC6586+1009030]&#10;&#09;Ordinal0 [0x00FBC416+967702]&#10;&#09;Ordinal0 [0x00FE1A8C+1120908]&#10;&#09;Ordinal0 [0x00FBBD84+966020]&#10;&#09;Ordinal0 [0x00FE1CA4+1121444]&#10;&#09;Ordinal0 [0x00FF59E2+1202658]&#10;&#09;Ordinal0 [0x00FE18A6+1120422]&#10;&#09;Ordinal0 [0x00FBA73D+960317]&#10;&#09;Ordinal0 [0x00FBB71F+964383]&#10;&#09;GetHandleVerifier [0x0139E7E2+2743074]&#10;&#09;GetHandleVerifier [0x013908D4+2685972]&#10;&#09;GetHandleVerifier [0x01182BAA+532202]&#10;&#09;GetHandleVerifier [0x01181990+527568]&#10;&#09;Ordinal0 [0x0109080C+1837068]&#10;&#09;Ordinal0 [0x01094CD8+1854680]&#10;&#09;Ordinal0 [0x01094DC5+1854917]&#10;&#09;Ordinal0 [0x0109ED64+1895780]&#10;&#09;BaseThreadInitThunk [0x76686939+25]&#10;&#09;RtlGetFullPathName_UEx [0x773B8FD2+1218]&#10;&#09;RtlGetFullPathName_UEx [0x773B8F9D+1165]&#10;">
+<![CDATA[
+Failing step: Then navigate to connection list page ... failed in 0.094s
+Location: features/Connectionlist.feature:9
+Traceback (most recent call last):
+  File "C:\Users\KnoDTec\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\model.py", line 1329, in run
+    match.run(runner.context)
+  File "C:\Users\KnoDTec\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "features\steps\connectionlist.py", line 31, in connectionlist_page
+    context.driver.find_element(By.XPATH, btn_conlist_xpath).click()
+  File "C:\Users\KnoDTec\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 93, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Users\KnoDTec\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 410, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Users\KnoDTec\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 444, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\KnoDTec\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 249, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=107.0.5304.107)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x010F1ED3+2236115]
+	Ordinal0 [0x010892F1+1807089]
+	Ordinal0 [0x00F965C0+812480]
+	Ordinal0 [0x00FC6586+1009030]
+	Ordinal0 [0x00FBC416+967702]
+	Ordinal0 [0x00FE1A8C+1120908]
+	Ordinal0 [0x00FBBD84+966020]
+	Ordinal0 [0x00FE1CA4+1121444]
+	Ordinal0 [0x00FF59E2+1202658]
+	Ordinal0 [0x00FE18A6+1120422]
+	Ordinal0 [0x00FBA73D+960317]
+	Ordinal0 [0x00FBB71F+964383]
+	GetHandleVerifier [0x0139E7E2+2743074]
+	GetHandleVerifier [0x013908D4+2685972]
+	GetHandleVerifier [0x01182BAA+532202]
+	GetHandleVerifier [0x01181990+527568]
+	Ordinal0 [0x0109080C+1837068]
+	Ordinal0 [0x01094CD8+1854680]
+	Ordinal0 [0x01094DC5+1854917]
+	Ordinal0 [0x0109ED64+1895780]
+	BaseThreadInitThunk [0x76686939+25]
+	RtlGetFullPathName_UEx [0x773B8FD2+1218]
+	RtlGetFullPathName_UEx [0x773B8F9D+1165]
+
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Create new  Connection List in Project
+    Given I launch chrome browser ... passed in 2.265s
+    When I open PushPullTouch homepage ... passed in 1.154s
+    And Enter username "OCUA4" and password "1234" ... passed in 0.129s
+    And click on Sign In button ... passed in 1.340s
+    Then navigate to Project Page ... passed in 2.468s
+    Then navigate to Variant page ... passed in 0.294s
+    Then navigate to connection list page ... failed in 0.094s
+    Then click on new btn to create connection list ... skipped in 0.000s
+    Then Enter con list name and description ... skipped in 0.000s
+    Then click on save btn to create new con list ... skipped in 0.000s
+    Then New connection list should be created successfully ... skipped in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

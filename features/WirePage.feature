@@ -2,7 +2,7 @@ Feature: Push Pull Touch Wire Page
   Background: common steps
     Given I launch chrome browser
     When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
+    And Enter username "OCUA4" and password "1234"
     And click on Sign In button
     Then navigate to Project Page
     Then navigate to Variant page

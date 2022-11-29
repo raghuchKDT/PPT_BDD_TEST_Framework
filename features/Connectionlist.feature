@@ -2,13 +2,13 @@ Feature: Push Pull Touch Connection List Page
   Background: common steps
     Given I launch chrome browser
     When I open PushPullTouch homepage
-    And Enter username "admin" and password "admin"
+    And Enter username "OCUA4" and password "1234"
     And click on Sign In button
     Then navigate to Project Page
     Then navigate to Variant page
     Then navigate to connection list page
 
-  Scenario: Verify Connection List Page in Project2
+  Scenario: Verify Connection List Page in Project
     Then Connection list Page should load successfully
 
   Scenario: Create new  Connection List in Project

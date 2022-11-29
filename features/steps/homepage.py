@@ -10,11 +10,13 @@ Infopage_xpath = "//*[@id='one']"
 Recentproject_xpath = "//*[@id='pills-home-tab']"
 Versionhis_xpath = "//*[@id='pills-profile-tab']"
 Optionspage_xpath = "//*[@id='pills-contact-tab']"
+username = "OCUA4"
+pwd = "1234"
 
 
 @given('I launch chrome browser')
 def launch_browser(context):
-    context.driver = webdriver.Chrome(executable_path="C:\\chromedriver.exe")
+    context.driver = webdriver.Chrome()
     context.driver.maximize_window()
     time.sleep(1)
 
@@ -27,17 +29,18 @@ def open_homepage(context):
 
 @then('Verify that the logo present on the page')
 def verify_logo(context):
+    time.sleep(1)
     status = context.driver.find_element(By.XPATH, PPT_logo_xpath).is_displayed()
     assert status is True
 
 
-@when('Enter username "{user}" and password "{pwd}"')
-def login_credentials(context, user, pwd):
-    context.driver.find_element(By.ID, "UserName").send_keys(user)
+@then('Enter username "{username}" and password "{pwd}"')
+def login_credentials(context, username, pwd):
+    context.driver.find_element(By.ID, "UserName").send_keys(username)
     context.driver.find_element(By.ID, "Password").send_keys(pwd)
 
 
-@when('click on Sign In button')
+@then('click on Sign In button')
 def sign_in(context):
     time.sleep(1)
     context.driver.find_element(By.XPATH, btn_signin_xpath).click()
@@ -59,8 +62,9 @@ def Info_page(context):
     assert 'Info' in context.driver.page_source
 
 
-@then('Info Page should be have recent project')
+@then('Info Page should have recent project')
 def recent_projectpage(context):
+    time.sleep(1)
     context.driver.find_element(By.XPATH, Recentproject_xpath).click()
 
 
@@ -102,4 +106,4 @@ def option_contents(context):
     assert 'Software options installed' in context.driver.page_source
     time.sleep(2)
     assert 'Graphic setup' in context.driver.page_source
-    context.driver.close()
+

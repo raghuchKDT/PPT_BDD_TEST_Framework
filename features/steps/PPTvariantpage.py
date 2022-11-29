@@ -47,12 +47,13 @@ def save_variant(context):
 
 @then('New variant should be created successfully')
 def verify_variant(context):
-    time.sleep(1)
+    time.sleep(2)
     assert 'Updated Successfully.' in context.driver.page_source
 
 
 @then('select the checkbox')
 def checkbox_variant(context):
+    time.sleep(1)
     context.driver.find_element(By.XPATH, btn_checkboxvar_xpath).click()
 
 
