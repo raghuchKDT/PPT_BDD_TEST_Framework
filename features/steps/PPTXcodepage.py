@@ -9,16 +9,15 @@ btn_newxcode_xpath = "//*[@id='collapseXcodeParent']/div[1]/button[1]"
 btn_selectmodule_xpath = "drdXCodeModule"
 click_modulepicturepng_xpath = "//*[@id='xcodepopImg']"
 btn_savexcode_xpath = "//*[@id='btn-add-xcode']"
-btn_clickxcode_xpath = "//*[@id='xcodd-73']"
-btn_editxcode_xpath = "//*[@id='btn-XEdit']"
+btn_editxcode_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[7]/div[2]/div[1]/div/div[1]/div[1]/button[2]"
 btn_saveedited_xpath = "//*[@id='btn-add-xcode']"
 btn_xcodedelete_xpath = "//*[@id='xcodd-73']"
 btn_deletexcode_xpath = "//*[@id='btn-XDelete']"
-btn_deletepopupxcode_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[2]/div[2]/div[2]/div[2]/div[4]/div/div/div[2]/div/button[2]"
+btn_deletepopupxcode_xpath = "//*[@id='btn-delete-xcode']"
+select_Xcode_xpath = "//*[@id='drdCopyXCode']/option[2]"
 btn_copyxcode_xpath = "//*[@id='btn-SaveAs']"
-btn_selectxcode_xpath = "//*[@id='drdCopyXCode']"
 btn_savecopyxcode_xpath = "//*[@id='btn-copy-xcode']"
-btn_generalpropxcode_xpath = "//*[@id='xcodd-65']"
+btn_generalpropxcode_xpath = "//*[@id='spanxcodeProp']"
 
 
 @then('navigate to Xcode Page')
@@ -62,10 +61,10 @@ def set_module(context):
     context.driver.execute_script("arguments[0].scrollIntoView();", element1)
     context.driver.find_element(By.ID, btn_selectmodule_xpath).click()
     time.sleep(1)
-    context.driver.find_element(By.XPATH, click_modulepicturepng_xpath).send_keys("C:\\Users\\KnoDTec\\Downloads\\Picture.png")
+    context.driver.find_element(By.XPATH, click_modulepicturepng_xpath).send_keys("C:\\Users\\KnoDTec - Dheeraj\\Downloads\\Xcode_Module_img.png")
 
 
-@then('click save for creating')
+@then('click save for saving XCode')
 def save_xcode(context):
     time.sleep(1)
     context.driver.find_element(By.XPATH, btn_savexcode_xpath).click()
@@ -77,16 +76,21 @@ def step_impl(context):
     assert 'XCode Added successfully.' in context.driver.page_source
 
 
-@then('click on xcode which you want to edit')
-def click_xcode(context):
-    time.sleep(2)
-    context.driver.find_element(By.XPATH, btn_clickxcode_xpath).click()
+@then('verify the general properties of the xcode')
+def step_impl(context):
+    xCodeprop = context.driver.find_elements(By.XPATH, "//*[@id='spanxcodeProp']")
+    expected = ['XCode Name', 'Customer ID', 'Description']
+    contents = []
+    for var in xCodeprop:
+        contents.append(var.text)
+    for expvar in expected:
+        assert (expvar in contents[0]) is True
 
 
 @then('click on edit btn of xcode')
 def edit_xcode(context):
     time.sleep(1)
-    context.driver.find_element(By.XPATH, btn_editxcode_xpath).click()
+    context.driver.find_element(By.XPATH,   btn_editxcode_xpath).click()
 
 
 @then('Edit xcode name, customer no and description')
@@ -105,18 +109,10 @@ def set_editxcode(context):
     context.driver.find_element(By.ID, "txtXcodeDescription1").send_keys(rand_edit_xcodedesc)
 
 
-@then('Edit module and image')
-def edit_modulepng(context):
+@then('Edit image')
+def edit_image(context):
     time.sleep(1)
-    element1 = context.driver.find_element(By.XPATH, "//*[@id='xcodepopImg1']")
-    context.driver.execute_script("arguments[0].scrollIntoView();", element1)
-    context.driver.find_element(By.XPATH, click_modulepicturepng_xpath).send_keys("C:\\Users\\KnoDTec\\Downloads\\Picture.png")
-
-
-@then('click on save btn to edit')
-def save_edited(context):
-    time.sleep(2)
-    context.driver.find_element(By.XPATH, btn_savexcode_xpath).click()
+    context.driver.find_element(By.XPATH, click_modulepicturepng_xpath).send_keys("C:\\Users\\KnoDTec - Dheeraj\\Downloads\\Xcode_Module_img.png")
 
 
 @then('Edited xcode should load successfully')
@@ -127,14 +123,14 @@ def verify_editedxcode(context):
 
 @then('click on copy btn')
 def copy_btn(context):
-    time.sleep(1)
+    time.sleep(2)
     context.driver.find_element(By.XPATH, btn_copyxcode_xpath).click()
 
 
-@then('Select the xcode you want to copy')
-def copy_xcode(context):
+@then('select xcode from the list')
+def selectXcode(context):
     time.sleep(1)
-    context.driver.find_element(By.XPATH, btn_selectxcode_xpath).click()
+    context.driver.find_element(By.XPATH, select_Xcode_xpath).click()
 
 
 @then('Enter xcode and customer no and description')
@@ -164,38 +160,19 @@ def verify_copied(context):
     assert 'Added Successfully.' in context.driver.page_source
 
 
-@then('click on the xcode you want to delete')
-def delete_xcode(context):
-    time.sleep(1)
-    context.driver.find_element(By.XPATH, btn_xcodedelete_xpath).click()
-
-
 @then('click on delete btn to delete the xcode')
 def delete_xcode(context):
     time.sleep(1)
     context.driver.find_element(By.XPATH, btn_deletexcode_xpath).click()
 
 
+@then('click on confirm delete btn to delete the xcode')
+def confirm_delete(context):
+    time.sleep(2)
+    context.driver.find_element(By.XPATH, btn_deletepopupxcode_xpath).click()
+
+
 @then('verify that the xcode is deleted successfully')
 def verify_deleted(context):
     time.sleep(2)
-    context.driver.find_element(By.XPATH, btn_deletepopupxcode_xpath).click()
-    time.sleep(1)
     assert 'Deleted Successfully.' in context.driver.page_source
-
-
-@then('click on xcode to see its general properties')
-def gene_properties(context):
-    time.sleep(1)
-    context.driver.find_element(By.XPATH, btn_generalpropxcode_xpath).click()
-
-
-@then('verify the general properties of the xcode')
-def step_impl(context):
-    xCodeprop = context.driver.find_elements(By.XPATH, "/html/body/div[1]/div[2]/main/div[3]/div/div[2]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[4]/div/div/div[2]/div")
-    expected = ['XCode Name', 'Customer ID', 'Description']
-    contents = []
-    for var in xCodeprop:
-        contents.append(var.text)
-    for expvar in expected:
-        assert (expvar in contents[0]) is True

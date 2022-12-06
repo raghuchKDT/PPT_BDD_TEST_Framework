@@ -16,7 +16,7 @@ pwd = "1234"
 
 @given('I launch chrome browser')
 def launch_browser(context):
-    context.driver = webdriver.Chrome()
+    context.driver = webdriver.Chrome(executable_path = "C:\\Users\\KnoDTec - Dheeraj\\Downloads\\chromedriver_win32\\chromedriver.exe")
     context.driver.maximize_window()
     time.sleep(1)
 
@@ -34,13 +34,13 @@ def verify_logo(context):
     assert status is True
 
 
-@then('Enter username "{username}" and password "{pwd}"')
+@when('Enter username "{username}" and password "{pwd}"')
 def login_credentials(context, username, pwd):
     context.driver.find_element(By.ID, "UserName").send_keys(username)
     context.driver.find_element(By.ID, "Password").send_keys(pwd)
 
 
-@then('click on Sign In button')
+@when('click on Sign In button')
 def sign_in(context):
     time.sleep(1)
     context.driver.find_element(By.XPATH, btn_signin_xpath).click()

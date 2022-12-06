@@ -15,21 +15,19 @@ Feature: Push Pull Touch User Manager Page
     Then click on save btn
     And user should be successfully created
 
-  Scenario: Edit User in User Manager
-    Then click on checkmark to edit the user
-    Then click on edit btn in user
-    Then Edit username and password
-    Then click on save btn
-    And User should be edited successfully
-
-   Scenario: Delete User in User Manager
-    Then click on checkmark to delete the user
-    Then click on delete btn in user
-    And User should be deleted successfully
+#  Scenario: Edit User in User Manager
+#    Then click on checkmark to edit the user
+#    Then click on edit btn in user
+#    Then Edit username and password
+#    Then click on save btn
+#    And User should be edited successfully
 
   Scenario: Verify Properties in User Manager
+    Then click on checkmark to edit the user
     Then Verify the headlines in user manager page
     Then Verify the General Properties of user
 
-  Scenario: Verify the Access Section in user manager
-    Then Verify web elements in access section present
+#  Scenario: Delete User in User Manager
+#    Then click on delete btn in user
+#    Then click on confirm delete btn in user
+#    And User should be deleted successfully

@@ -17,8 +17,10 @@ Feature: Push Pull Touch Pick to Light Page
     Then click on save btn p2l
     Then pick to light should be created successfully
 
+  Scenario: General Properties Pick to Light in Project
+    Then verify the general properties
+
   Scenario: Edit Pick to Light in Project
-    Then click on pick to light you want to edit
     Then click on edit btn of pick to light
     Then edit the p2l and description
     Then Edit no of led
@@ -26,17 +28,11 @@ Feature: Push Pull Touch Pick to Light Page
     Then Pick to Light should be edited successfully
 
   Scenario: Copy Pick to Light in Project
-    Then click on pick to light you want to copy
     Then click on copy btn to copy
     Then enter picktolight name and description for copying
     Then click on save btn to save the copied ptl
     Then Pick to Light should be copied successfully
 
   Scenario: Delete Pick to Light in Project
-    Then select ptl which you want to delete
     Then click on delete btn
     Then verify that the ptl is deleted successfully
-
-   Scenario: General Properties Pick to Light in Project
-    Then click on pick to light to check its general properties
-    Then verify the general properties

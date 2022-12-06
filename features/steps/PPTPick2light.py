@@ -7,15 +7,12 @@ import random
 btn_pick2light_xpath = "//*[@id='pills-tab']/li[3]/a"
 btn_newp2l_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[4]/div/div/div[1]/div[2]/div/button[1]"
 btn_save_picktolight = "/html/body/div[1]/div[2]/main/div[4]/div/div/div[2]/div/button[2]"
-btn_picktolight_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[4]/div/div/div[1]/span[1]/div/ul/li[5]/a/h6"
 btn_editpicktolight_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[4]/div/div/div[1]/div[2]/div/button[2]"
 btn_editsave_xpath = "/html/body/div[1]/div[2]/main/div[6]/div/div/div[2]/div/button[2]"
-btn_copyptl_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[4]/div/div/div[1]/span[1]/div/ul/li[5]/a/h6"
 btn_copy_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[4]/div/div/div[1]/div[2]/div/button[3]"
-btn_savecopy_xpath = "/html/body/div[1]/div[2]/main/div[5]/div/div/div[2]/div/button[2]"
-btn_deleteptl_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[4]/div/div/div[1]/span[1]/div/ul/li[2]/a/h6"
-btn_deleteclick_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[4]/div/div/div[1]/div[2]/div/button[4]"
-btn_clickptl_xpath = "//*[@id='modd-35']/a/h6"
+btn_savecopy_xpath = "//*[@id='btn-copy-pickToLight']"
+btn_deleteptl_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[4]/div/div/div[1]/div[2]/div/button[4]"
+btn_confirmdelete_xpath = "//*[@id='btn-delete-picktoligt']"
 
 
 @then('navigate to Pick to Light page')
@@ -68,10 +65,12 @@ def verify_pick2light(context):
     assert 'Pick To Light Added successfully.' in context.driver.page_source
 
 
-@then('click on pick to light you want to edit')
-def pick_tolight(context):
-    time.sleep(1)
-    context.driver.find_element(By.XPATH, btn_picktolight_xpath).click()
+@then('verify the general properties')
+def verify_generalproperties(context):
+    time.sleep(2)
+    assert 'Description' in context.driver.page_source
+
+    assert 'Pick to Light LED No' in context.driver.page_source
 
 
 @then('click on edit btn of pick to light')
@@ -95,15 +94,9 @@ def set_editp2l(context):
 @then('Edit no of led')
 def edit_LED(context):
     time.sleep(1)
-    rand_editLED_no = ''.join((random.choice('12345678') for i in range(1)))
+    rand_editLED_no = ''.join((random.choice('123456789') for i in range(1)))
     context.driver.find_element(By.ID, "txtPickNum").clear()
     context.driver.find_element(By.ID, "txtPickNum").send_keys(rand_editLED_no)
-
-
-@then('Pick to Light should be edited successfully')
-def verify_edited(context):
-    time.sleep(1)
-    assert 'Pick To Light Updated successfully.' in context.driver.page_source
 
 
 @then('click on save btn to save edited p2l')
@@ -112,14 +105,15 @@ def save_Edited(context):
     context.driver.find_element(By.XPATH, btn_editsave_xpath).click()
 
 
-@then('click on pick to light you want to copy')
-def copy_ptl(context):
+@then('Pick to Light should be edited successfully')
+def verify_edited(context):
     time.sleep(1)
-    context.driver.find_element(By.XPATH, btn_copyptl_xpath).click()
+    assert 'Pick To Light Updated successfully.' in context.driver.page_source
 
 
 @then('click on copy btn to copy')
 def btn_copy(context):
+    time.sleep(2)
     context.driver.find_element(By.XPATH, btn_copy_xpath).click()
 
 
@@ -137,42 +131,28 @@ def set_copyptl(context):
 
 @then('click on save btn to save the copied ptl')
 def save_copyptl(context):
+    time.sleep(2)
     context.driver.find_element(By.XPATH, btn_savecopy_xpath).click()
 
 
 @then('Pick to Light should be copied successfully')
 def verified_copied(context):
-    time.sleep(1)
+    time.sleep(2)
     assert 'Added Successfully.' in context.driver.page_source
-
-
-@then('select ptl which you want to delete')
-def delete_ptl(context):
-    time.sleep(1)
-    context.driver.find_element(By.XPATH, btn_deleteptl_xpath).click()
 
 
 @then('click on delete btn')
 def delete_btn(context):
-    context.driver.find_element(By.XPATH, btn_deleteclick_xpath).click()
+    time.sleep(2)
+    context.driver.find_element(By.XPATH, btn_deleteptl_xpath).click()
+
+
+@then('click on confirm delete btn')
+def delete_btn(context):
+    context.driver.find_element(By.XPATH, btn_confirmdelete_xpath).click()
 
 
 @then('verify that the ptl is deleted successfully')
 def verify_deleted(context):
-    time.sleep(1)
-    assert 'Deleted Successfully.' in context.driver.page_source
-
-
-@then('click on pick to light to check its general properties')
-def click_generalprop(context):
-   time.sleep(1)
-   context.driver.find_element(By.XPATH, btn_clickptl_xpath).click()
-
-
-@then('verify the general properties')
-def verify_generalproperties(context):
     time.sleep(2)
-    assert 'Description' in context.driver.page_source
-
-    assert 'Pick to Light LED No' in context.driver.page_source
-
+    assert 'Pick To Light Deleted successfully.' in context.driver.page_source

@@ -7,7 +7,7 @@ import random
 btn_switch_xpath = "//*[@id='pills-switch-tab']"
 btn_newswitch_xpath = "//*[@id='bntGoToCreateSwicth']"
 btn_saveswitch_xpath = "//*[@id='btn-switchSave']"
-btn_checkbox02_xpath = "//*[@id='tblswitch']/tbody/tr[2]/td[1]/label/span"
+btn_checkbox02_xpath = "//*[@id='tblswitch']/tbody/tr/td[1]/label/span"
 btn_deleteswitch_xpath = "//*[@id='btn-switchdelete']"
 btn_deletepopupswitch_xpath = "//*[@id='btn-delete-switch']"
 btn_editbtn_xpath = "//*[@id='btn-switchEdit']"

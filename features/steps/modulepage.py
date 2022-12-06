@@ -12,10 +12,9 @@ txt_moduleselect_xpath = "//*[contains(text(),'itaer')]"
 btn_deletemodule_xpath = "//*[@id='btn-DeleteModule']"
 btn_module_xpath = "//*[contains(text(),'Xcode-20')]"
 btn_deletepopup_xpath = "//*[@id='btn-delete-module']"
-btn_savecopymodule_xpath = "//*[@id='btn-copy-module']"
-btn_generalprop_xpath = "//*[contains(text(),'Xcode-20')]"
-btn_copimodule_xpath = "//*[@id='btn-SaveAs']"
-module_image_path = "C:\\Downloads\\module.png"
+btn_savecopymodule_xpath = "/html/body/div[1]/div[2]/main/div[9]/div/div/div[2]/div/button[1]"
+btn_copymodule_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[3]/div/div/div[1]/div[2]/div/button[3]"
+module_image_path = "C:\\Users\\KnoDTec - Dheeraj\\Downloads\\Xcode_Module_img.png"
 
 
 @then('navigate to Module page')
@@ -69,7 +68,6 @@ def set_LED_picture(context):
     context.driver.execute_script("arguments[0].scrollIntoView();", element)
     context.driver.find_element(By.XPATH, click_modulepicture_xpath).send_keys(module_image_path)
 
-
 @then('click on save btn in module')
 def save_btn(context):
     context.driver.find_element(By.XPATH, btn_save_module).click()
@@ -77,49 +75,13 @@ def save_btn(context):
 
 @then('Module should be created successfully')
 def verify_module(context):
-    time.sleep(1)
+    time.sleep(2)
     assert 'Module Added successfully.' in context.driver.page_source
-
-
-@then('click on the module you want to delete')
-def delete_module(context):
-    time.sleep(1)
-    context.driver.find_element(By.XPATH, txt_moduleselect_xpath).click()
-
-
-@then('click on delete btn to delete module')
-def delete_btn(context):
-    context.driver.find_element(By.XPATH, btn_deletemodule_xpath).click()
-
-
-@then('Module should successfully be deleted')
-def verify_deletedmodule(context):
-    time.sleep(1)
-    context.driver.find_element(By.XPATH, btn_deletepopup_xpath).click()
-    time.sleep(1)
-    assert 'Module deleted successfully.' in context.driver.page_source
-
-
-@then('click on module which you want to copy')
-def copy_module(context):
-    time.sleep(1)
-    context.driver.find_element(By.XPATH, btn_module_xpath).click()
-
-
-@then('click on save btn to copy the module')
-def save_copymodule(context):
-    context.driver.find_element(By.XPATH, btn_savecopymodule_xpath).click()
-
-
-@then('click on module which you want to see general properties')
-def general_prop(context):
-    time.sleep(1)
-    context.driver.find_element(By.XPATH, btn_generalprop_xpath).click()
 
 
 @then('General properties of the module should be displayed')
 def verify_generalprop(context):
-    time.sleep(1)
+    time.sleep(2)
     # expected_el1 = ['Description', 'Module Board COMM Pin', 'Number of Cavity', 'Number of Switch', 'Module Cavity LED No']
     # data_base_el1 = context.driver.find_elements(By.XPATH, "//*[@id='collapseSysDescBelow']/div/div")
     # time.sleep(1)
@@ -137,18 +99,41 @@ def verify_generalprop(context):
     time.sleep(1)
     assert 'Module Cavity LED No' in context.driver.page_source
 
+@then('click on copy btn to copy module')
+def copy_btn(context):
+    time.sleep(2)
+    context.driver.find_element(By.XPATH, btn_copymodule_xpath).click()
+
 
 @then('Enter Module Name and description to copy')
 def set_copymodule(context):
+    time.sleep(2)
     rand_copy_module = ''.join((random.choice('aeiourtnsclp') for i in range(5)))
     context.driver.find_element(By.ID, "txtCopyNewModule").clear()
     context.driver.find_element(By.ID, "txtCopyNewModule").send_keys(rand_copy_module)
+    time.sleep(2)
     rand_copy_moduledesc = ''.join((random.choice('aeiourtnsclp') for i in range(7)))
     context.driver.find_element(By.ID, "txtCopyModuleDescription").clear()
     context.driver.find_element(By.ID, "txtCopyModuleDescription").send_keys(rand_copy_moduledesc)
 
+@then('click on save btn to copy the module')
+def save_copymodule(context):
+    context.driver.find_element(By.XPATH, btn_savecopymodule_xpath).click()
 
-@then('click on copy btn to copy module')
-def copy_btn(context):
-    time.sleep(1)
-    context.driver.find_element(By.XPATH, btn_copimodule_xpath).click()
+
+@then('click on delete btn to delete module')
+def delete_btn(context):
+    time.sleep(2)
+    context.driver.find_element(By.XPATH, btn_deletemodule_xpath).click()
+
+
+@then('click on confirm delete btn to delete module')
+def verify_Confirm_delete_btn(context):
+    time.sleep(2)
+    context.driver.find_element(By.XPATH, btn_deletepopup_xpath).click()
+
+
+@then('Module should successfully be deleted')
+def verify_deletedmodule(context):
+    time.sleep(2)
+    assert 'Module deleted successfully' in context.driver.page_source

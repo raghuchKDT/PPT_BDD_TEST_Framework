@@ -16,15 +16,19 @@ Feature: Push Pull Touch Role Page
     Then save the role by clicking save btn
     Then New role should be created successfully
 
-   Scenario: Edit Role name in role page
+  Scenario: Edit Role name in role page
     Then click on checkbox to edit the role
     Then click on edit btn to edit role
     Then Edit Role name
     Then save the role by clicking save btn
     Then role should be edited successfully
 
+
   Scenario: Delete Role name in role page
     Then click on checkbox to delete the role
     Then click on delete btn to delete role
     Then role should be successfully deleted
 
+
+  Scenario: Verify the Access Section in role page
+    Then Verify web elements in access section present
