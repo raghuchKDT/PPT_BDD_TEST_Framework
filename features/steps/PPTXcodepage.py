@@ -12,12 +12,13 @@ btn_savexcode_xpath = "//*[@id='btn-add-xcode']"
 btn_editxcode_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[7]/div[2]/div[1]/div/div[1]/div[1]/button[2]"
 btn_saveedited_xpath = "//*[@id='btn-add-xcode']"
 btn_xcodedelete_xpath = "//*[@id='xcodd-73']"
-btn_deletexcode_xpath = "//*[@id='btn-XDelete']"
+btn_deletexcode_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[7]/div[2]/div[1]/div/div[1]/div[1]/button[4]"
 btn_deletepopupxcode_xpath = "//*[@id='btn-delete-xcode']"
 select_Xcode_xpath = "//*[@id='drdCopyXCode']/option[2]"
-btn_copyxcode_xpath = "//*[@id='btn-SaveAs']"
+btn_copyxcode_xpath = "/html/body/div[1]/div[2]/main/div[3]/div/div[7]/div[2]/div[1]/div/div[1]/div[1]/button[3]"
 btn_savecopyxcode_xpath = "//*[@id='btn-copy-xcode']"
 btn_generalpropxcode_xpath = "//*[@id='spanxcodeProp']"
+xcode_image_path = "C:\\Users\\KnoDTec - Dheeraj\\Downloads\\Xcode_Module_img.png"
 
 
 @then('navigate to Xcode Page')
@@ -66,7 +67,7 @@ def set_module(context):
 
 @then('click save for saving XCode')
 def save_xcode(context):
-    time.sleep(1)
+    time.sleep(2)
     context.driver.find_element(By.XPATH, btn_savexcode_xpath).click()
 
 
@@ -99,10 +100,12 @@ def set_editxcode(context):
     time.sleep(1)
     context.driver.find_element(By.ID, "txtNewXcodeName1").clear()
     context.driver.find_element(By.ID, "txtNewXcodeName1").send_keys(rand_edit_xcode)
+
     rand_edit_xcodecustomerno = ''.join((random.choice('123456789') for i in range(2)))
     time.sleep(1)
     context.driver.find_element(By.ID, "txtXcodeCustomerId1").clear()
     context.driver.find_element(By.ID, "txtXcodeCustomerId1").send_keys(rand_edit_xcodecustomerno)
+
     rand_edit_xcodedesc = ''.join((random.choice('aeiourtnsclp') for i in range(7)))
     time.sleep(1)
     context.driver.find_element(By.ID, "txtXcodeDescription1").clear()
@@ -111,9 +114,19 @@ def set_editxcode(context):
 
 @then('Edit image')
 def edit_image(context):
+    time.sleep(2)
+    element2 = context.driver.find_element(By.XPATH, "//*[@id='xcodepopImg1']")
+    context.driver.execute_script("arguments[0].scrollIntoView();", element2)
+    context.driver.find_element(By.XPATH, click_modulepicturepng_xpath).send_keys(xcode_image_path)
+
+@then('select module which you want')
+def set_module(context):
+    time.sleep(1)
+    element1 = context.driver.find_element(By.XPATH, "//*[@id='drdXCodeModule']")
+    context.driver.execute_script("arguments[0].scrollIntoView();", element1)
+    context.driver.find_element(By.ID, btn_selectmodule_xpath).click()
     time.sleep(1)
     context.driver.find_element(By.XPATH, click_modulepicturepng_xpath).send_keys("C:\\Users\\KnoDTec - Dheeraj\\Downloads\\Xcode_Module_img.png")
-
 
 @then('Edited xcode should load successfully')
 def verify_editedxcode(context):
@@ -147,11 +160,6 @@ def copy_xcodename(context):
     time.sleep(1)
     context.driver.find_element(By.ID, "txtCopyXcodeDescription").clear()
     context.driver.find_element(By.ID, "txtCopyXcodeDescription").send_keys(rand_edit_xcodedesc)
-
-
-@then('Click on save btn to copy the xcode')
-def save_copied(context):
-    context.driver.find_element(By.XPATH, btn_savecopyxcode_xpath).click()
 
 
 @then('Xcode should be successfully copied')
