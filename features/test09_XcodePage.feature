@@ -25,15 +25,15 @@ Feature: Push Pull Touch Xcode Page
   Scenario: Edit  Xcode in Project
     Then click on edit btn of xcode
     Then Edit xcode name, customer no and description
-    Then Edit image
-    Then click save for saving XCode
+    Then click save for saving Edited XCode
     Then Edited xcode should load successfully
 
 
   Scenario: Copy  Xcode in Project
     Then click on copy btn
+    Then select xcode from the list
     Then Enter xcode and customer no and description
-    Then click save for saving XCode
+    Then click save for saving Copied XCode
     Then Xcode should be successfully copied
 
 
