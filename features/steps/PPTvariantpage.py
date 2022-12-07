@@ -7,7 +7,6 @@ import random
 btn_variant_linktext = "Variant"
 btn_newvariant_xpath = "//*[@id='bntGoToCreateVariant']"
 btn_savevariant_xpath = "//*[@id='btn-VarSave']"
-btn_checkboxvar_xpath = ""
 
 
 @then('navigate to Variant page')
@@ -51,10 +50,17 @@ def verify_variant(context):
     assert 'Updated Successfully.' in context.driver.page_source
 
 
-@then('select the checkbox')
-def checkbox_variant(context):
+@then('Verify the general properties of the variant')
+def General_properties(context):
     time.sleep(1)
-    context.driver.find_element(By.XPATH, btn_checkboxvar_xpath).click()
+    Varprop = context.driver.find_elements(By.XPATH, "//*[@id='accordion']/div[1]")
+    print(len(Varprop))
+    expected = ['Variant Name', 'Description', 'Date Created']
+    contents = []
+    for var in Varprop:
+        contents.append(var.text)
+    for expvar in expected:
+        assert (expvar in contents[0]) == True
 
 
 @then('click on edit btn variant')
@@ -77,12 +83,12 @@ def step_impl(context):
     raise NotImplementedError(u'STEP: Then click on copy btn variant')
 
 
-@then(u'enter variant name and desc')
+@then('enter variant name and desc')
 def step_impl(context):
     raise NotImplementedError(u'STEP: Then enter variant name and desc')
 
 
-@then(u'click on save btn to copy the changes')
+@then('click on save btn to copy the changes')
 def step_impl(context):
     raise NotImplementedError(u'STEP: Then click on save btn to copy the changes')
 
@@ -100,16 +106,3 @@ def step_impl(context):
 @then('Verify that the variant is deleted successfully')
 def step_impl(context):
     raise NotImplementedError(u'STEP: Then Verify that the variant is deleted successfully')
-
-
-@then('Verify the general properties of the variant')
-def General_properties(context):
-    time.sleep(1)
-    Varprop = context.driver.find_elements(By.XPATH, "/html/body/div[1]/div[2]/main/div[3]/div/div[2]/div[2]/div[1]/div/div[3]/div[1]")
-    print(len(Varprop))
-    expected = ['Variant Name', 'Description', 'Date Created']
-    contents = []
-    for var in Varprop:
-        contents.append(var.text)
-    for expvar in expected:
-        assert (expvar in contents[0]) == True
