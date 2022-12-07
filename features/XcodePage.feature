@@ -11,6 +11,7 @@ Feature: Push Pull Touch Xcode Page
   Scenario: Verify Xcode Page in Project
     Then Xcode Page should load successfully
 
+    @Sanity @Integration
   Scenario: Create New Xcode in Project
     Then create new btn for xcode
     Then Enter xcode name , customer code and description

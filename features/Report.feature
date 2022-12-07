@@ -9,6 +9,7 @@ Feature: Push Pull Touch Report Page
   Scenario: Verify Report Page
     Then verify the Report Page
 
+    @Sanity
   Scenario: Create New Report in Report Page
     Then click on new btn in report page
     Then Enter Name as "Report-4" and Description as "desc"

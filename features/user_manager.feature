@@ -9,6 +9,7 @@ Feature: Push Pull Touch User Manager Page
   Scenario: Verify User Manager Page
     Then verify the user manager Page
 
+    @Sanity
   Scenario: Create New User in User Manager
     Then click on new btn in user manager
     Then Enter username and password
@@ -31,5 +32,7 @@ Feature: Push Pull Touch User Manager Page
     Then Verify the headlines in user manager page
     Then Verify the General Properties of user
 
-  Scenario: Verify the Access Section in user manager
-    Then Verify web elements in access section present
+  Scenario: Multiple users creating is user manager
+    Then click on new btn in user manager
+    Then Get the data from the excel
+

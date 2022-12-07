@@ -15,7 +15,7 @@ btn_deletepopup_xpath = "//*[@id='btn-delete-module']"
 btn_savecopymodule_xpath = "//*[@id='btn-copy-module']"
 btn_generalprop_xpath = "//*[contains(text(),'Xcode-20')]"
 btn_copimodule_xpath = "//*[@id='btn-SaveAs']"
-module_image_path = "C:\\Downloads\\module.png"
+module_image_path = "C:\\Downloads\\picture.png"
 
 
 @then('navigate to Module page')

@@ -10,6 +10,7 @@ Feature: Push Pull Touch Pick to Light Page
   Scenario: Verify Pick to Light Page in Project
     Then Pick to Light Page should load successfully
 
+    @Sanity
   Scenario: Create Pick to Light in Project
     Then click on new btn for p2l
     Then Enter picktolight name and description

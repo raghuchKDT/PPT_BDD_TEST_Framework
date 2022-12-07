@@ -10,6 +10,7 @@ Feature: Push Pull Touch Role Page
   Scenario: Verify Role Page in user manager
     Then Role page should successfully load
 
+    @Sanity
   Scenario: Create new Role
     Then click on new btn for create new role
     Then Enter Role name
@@ -28,3 +29,6 @@ Feature: Push Pull Touch Role Page
     Then click on delete btn to delete role
     Then role should be successfully deleted
 
+  Scenario: Verify the Access Section in role page
+    Then Click on checkmark of which access section you want to see
+    Then Verify web elements in access section present

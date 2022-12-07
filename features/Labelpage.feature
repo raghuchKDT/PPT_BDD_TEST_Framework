@@ -10,6 +10,7 @@ Feature: Push Pull Touch Label Page
   Scenario: Verify Label Page in Project
     Then Label page should successfully load
 
+    @Sanity
   Scenario: Create new Label in Project
     Then click on new btn for creating new label
     Then Enter Label and description

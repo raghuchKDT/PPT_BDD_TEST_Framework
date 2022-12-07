@@ -10,6 +10,7 @@ Feature: Push Pull Touch Variant Page
   Scenario: Verify Variant and Explorer Page in Project
     Then Verify that variant page and explorer page are loaded
 
+    @Sanity
   Scenario: Create new Variant in Project
     Then click on new btn to create variant
     Then enter the variant name and description

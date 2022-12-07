@@ -11,6 +11,7 @@ btn_checkbox3_xpath = "//*[@id='tblRole']/tbody/tr[3]/td[1]/label/span"
 btn_editrole_xpath = "//*[@id='btn-roleEdit']"
 btn_deleterole_xpath = "//*[@id='btn-roledelete']"
 btn_popupdeleterole_xpath = "//*[@id='btn-delete-role']"
+btn_checkmark_adminxpath = "//*[@id='tblRole']/tbody/tr[1]/td[1]/label/span"
 
 
 @then('navigate to role Page')
@@ -91,5 +92,69 @@ def verify_deletedrole(context):
     time.sleep(1)
     assert 'Deleted Successfully.' in context.driver.page_source
 
+
+@then('Click on checkmark of which access section you want to see')
+def role_checkmark(context):
+    time.sleep(1)
+    context.driver.find_element(By.XPATH, btn_checkmark_adminxpath).click()
+
+
+@then('Verify web elements in access section present')
+def verify_accessection(context):
+
+    # Validation of User Management in Access Section
+    expected_el = ['User Management']
+    data_base_el = context.driver.find_elements(By.XPATH, "//*[@id='3']/label")
+    print(len(data_base_el))
+    for idx, base_el in enumerate(data_base_el):
+        print(idx, base_el.text)
+        assert (expected_el[idx] == base_el.text)
+
+    # Validation of Info in Access Section
+    expected_el1 = ['Info']
+    data_base_el1 = context.driver.find_elements(By.XPATH, "//*[@id='1']/label")
+    for idx, base_el1 in enumerate(data_base_el1):
+        print(idx, base_el1.text)
+        assert (expected_el1[idx] == base_el1.text)
+
+    # Validation of Project in Access Section
+
+    expected_el2 = ['Project']
+    data_base_el2 = context.driver.find_elements(By.XPATH, "//*[@id='2']/label")
+    for idx, base_el2 in enumerate(data_base_el2):
+        print(idx, base_el2.text)
+        assert (expected_el2[idx] == base_el2.text)
+
+    # Validation of System in Access Section
+
+    expected_el3 = ['System']
+    data_base_el3 = context.driver.find_elements(By.XPATH, "//*[@id='6']/label")
+    for idx, base_el3 in enumerate(data_base_el3):
+        print(idx, base_el3.text)
+        assert (expected_el3[idx] == base_el3.text)
+
+    # Validation of Project (Web HMI) in Access Section
+
+    expected_el4 = ['Project']
+    data_base_el4 = context.driver.find_elements(By.XPATH, "//*[@id='5']/label")
+    for idx, base_el4 in enumerate(data_base_el4):
+        print(idx, base_el4.text)
+        assert (expected_el4[idx] == base_el4.text)
+
+    # Validation of Report (Web HMI) in Access Section
+
+    expected_el6 = ['Report']
+    data_base_el6 = context.driver.find_elements(By.XPATH, "//*[@id='7']/label")
+    for idx, base_el6 in enumerate(data_base_el6):
+        print(idx, base_el6.text)
+        assert (expected_el6[idx] == base_el6.text)
+
+    # Validation of Diagnostics (Web HMI) in Access Section
+
+    expected_el5 = ['Diagnostics']
+    data_base_el5 = context.driver.find_elements(By.XPATH, "//*[@id='8']/label")
+    for idx, base_el5 in enumerate(data_base_el5):
+        print(idx, base_el5.text)
+        assert (expected_el5[idx] == base_el5.text)
 
 

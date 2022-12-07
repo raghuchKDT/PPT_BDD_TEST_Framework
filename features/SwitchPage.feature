@@ -10,6 +10,7 @@ Feature: Push Pull Touch Switch Page
   Scenario: Verify switch Page
     Then Switch Page should load successfully
 
+    @Sanity
   Scenario: Create New Switch in switch page
     Then click on new btn for new switch
     Then Enter switch name

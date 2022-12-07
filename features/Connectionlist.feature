@@ -11,13 +11,14 @@ Feature: Push Pull Touch Connection List Page
   Scenario: Verify Connection List Page in Project
     Then Connection list Page should load successfully
 
+    @Sanity
   Scenario: Create new  Connection List in Project
     Then click on new btn to create connection list
     Then Enter con list name and description
     Then click on save btn to create new con list
     Then New connection list should be created successfully
-#
-##
+
+
 #  Scenario: Edit  Connection List in Project
 #    Given I launch chrome browser
 #    When I open PushPullTouch homepage

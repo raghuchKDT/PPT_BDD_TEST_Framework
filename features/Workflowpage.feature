@@ -10,6 +10,7 @@ Feature: Push Pull Touch Workflow Page
   Scenario: Verify Workflow Page
     Then Workflow page should successfully load
 
+    @Sanity
   Scenario: Create new Workflow Page
     Then click on new btn for new workflow
     Then Enter Workflow and description

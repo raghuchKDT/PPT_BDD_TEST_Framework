@@ -10,6 +10,7 @@ Feature: Push Pull Touch Module Page
   Scenario: Verify Module Page in Project
     Then Module Page should load successfully
 
+    @Sanity
   Scenario: Create new Module in module page
     Then click on new btn for new module
     Then Enter Module Name and description

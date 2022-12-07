@@ -11,6 +11,7 @@ Feature: Push Pull Touch Splice Page
   Scenario: Verify Splice Page in Project
     Then Splice Page should load successfully
 
+    @Sanity
   Scenario: Create new Splice in Project
     Then click on new btn for creating splice
     Then Enter the splice name
