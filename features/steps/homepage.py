@@ -2,6 +2,7 @@ from behave import *
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
+import XLUtils
 
 baseurl = "http://localhost:5003/"
 PPT_logo_xpath = "//*[@id='layoutAuthentication_content']/main/div/div[1]/div/div/div/img"
@@ -10,8 +11,10 @@ Infopage_xpath = "//*[@id='one']"
 Recentproject_xpath = "//*[@id='pills-home-tab']"
 Versionhis_xpath = "//*[@id='pills-profile-tab']"
 Optionspage_xpath = "//*[@id='pills-contact-tab']"
-username = "OCUA4"
-pwd = "1234"
+text_ppt_xpath = "/html/body/nav/a/span"
+btn_logout_xpath = "//*[@id='userDropdown']"
+btn_out_xpath = "//*[@id='adminicon']/ul/li/div/a"
+user_info_path = "features/Data Driven Reports/user_info.xlsx"
 
 
 @given('I launch chrome browser')
@@ -48,6 +51,13 @@ def sign_in(context):
 
 @then('User must successfully login to PPT webpage')
 def login_page(context):
+    time.sleep(1)
+    try:
+        title = context.driver.find_element(By.XPATH, text_ppt_xpath).text
+    except:
+        context.driver.close()
+        assert False, "Test Failed"
+
     title = context.driver.title
     if title == "komax Testing":
         assert True
@@ -107,3 +117,37 @@ def option_contents(context):
     time.sleep(2)
     assert 'Graphic setup' in context.driver.page_source
 
+
+@then('Read the data from the excel sheet')
+def multiple_user(context):
+    path = user_info_path
+
+    rows = XLUtils.getRowCount(path, 'Sheet1')
+
+    for r in range(2, rows + 1):
+        username = XLUtils.readData(path, "Sheet1", r, 1)
+        password = XLUtils.readData(path, "Sheet1", r, 2)
+
+        context.driver.find_element(By.ID, "UserName").clear()
+        context.driver.find_element(By.ID, "UserName").send_keys(username)
+
+        time.sleep(1)
+        context.driver.find_element(By.ID, "Password").clear()
+        context.driver.find_element(By.ID, "Password").send_keys(password)
+
+        time.sleep(1)
+        context.driver.find_element(By.XPATH, btn_signin_xpath).click()
+
+        if context.driver.title=="komax Testing":
+            print("login successfull")
+            time.sleep(2)
+            XLUtils.writeData(path, "Sheet1", r, 3, "login successfull")
+        else:
+            print("test failed")
+            time.sleep(2)
+            XLUtils.writeData(path, "Sheet1", r, 3, "test failed")
+
+        time.sleep(1)
+        context.driver.find_element(By.XPATH, btn_logout_xpath).click()
+        time.sleep(1)
+        context.driver.find_element(By.XPATH, btn_out_xpath).click()

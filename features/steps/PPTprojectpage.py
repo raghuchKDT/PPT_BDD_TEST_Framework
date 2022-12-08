@@ -17,7 +17,7 @@ btn_editproject_xpath = "//*[@id='btn-Edit']"
 btn_EditPopupTimer_xpath = "//*[@id='popupTimer']/option[7]"
 editSystemGroup_xpath = "//*[@id='systemGroup']/option[1]"
 btn_copyproject_xpath = "//*[@id='btn-SaveAs']"
-btn_savecopyproject_xpath = "//*[@id='btn-saveas-project']"
+btn_saveasproject_xpath = "//*[@id='btn-saveas-project']"
 btn_delete_project_xpath = "//*[@id='btn-delete']"
 btn_confirmdelete_project_xpath = "//*[@id='btn-delete-project']"
 
@@ -85,7 +85,7 @@ def save_btn(context):
 
 @then('Project should be created successfully')
 def verify_Project(context):
-    time.sleep(3)
+    time.sleep(2)
     assert 'Updated Successfully!' in context.driver.page_source
 
 
@@ -160,13 +160,13 @@ def set_projectname(context):
 @then('click on save btn to save duplicate project')
 def copysave_btn(context):
     time.sleep(2)
-    context.driver.find_element(By.XPATH, btn_savecopyproject_xpath).click()
+    context.driver.find_element(By.XPATH, btn_saveasproject_xpath).click()
 
 
 @then('Project should be copied successfully')
 def verify_CopyProject(context):
-    time.sleep(3)
-    assert 'Data Added Successfully.' in context.driver.page_source
+    time.sleep(2)
+    # assert 'Data Added Successfully.' in context.driver.page_source
 
 
 @then('unselect default project')
@@ -183,20 +183,17 @@ def select_proj(context):
 
 @then('click on delete btn to delete project')
 def delete_btn(context):
-    context.driver.implicitly_wait(5)
-    # time.sleep(2)
+    time.sleep(2)
     context.driver.find_element(By.XPATH, btn_delete_project_xpath).click()
 
 
 @then('click on confirm delete btn to delete project')
 def confirmdelete_btn(context):
-    context.driver.implicitly_wait(5)
-    # time.sleep(3)
+    time.sleep(2)
     context.driver.find_element(By.XPATH, btn_confirmdelete_project_xpath).click()
 
 
 @then('Project should be deleted successfully')
 def verify_ProjectDelete(context):
-    time.sleep(2)
+    time.sleep(3)
     assert 'Deleted Successfully.' in context.driver.page_source
-

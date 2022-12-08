@@ -11,7 +11,7 @@ Feature: Push Pull Touch Wire Page
   Scenario: Verify Wire Page in Project
     Then Wire Page should load successfully
 
-
+    @Sanity
   Scenario: Create New wire in Project
     Then click on new btn for new wire
     Then Enter wire ID and Group ID
@@ -46,7 +46,7 @@ Feature: Push Pull Touch Wire Page
     Then click on delete btn for deleting the wire
     Then Verify if the wire is deleted successfully
 
-
+     @Integration  @Sanity
   Scenario: Create New wire color scheme in Project
     Then click on new btn for new wire color scheme
     Then Enter color name and abbreviation to create

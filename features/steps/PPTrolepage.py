@@ -11,11 +11,13 @@ btn_checkbox3_xpath = "//*[@id='tblRole']/tbody/tr[3]/td[1]/label/span"
 btn_editrole_xpath = "//*[@id='btn-roleEdit']"
 btn_deleterole_xpath = "//*[@id='btn-roledelete']"
 btn_popupdeleterole_xpath = "//*[@id='btn-delete-role']"
+btn_checkmark_adminxpath = "//*[@id='tblRole']/tbody/tr[1]/td[1]/label/span"
 
 
 @then('navigate to role Page')
 def role_page(context):
     context.driver.find_element(By.XPATH, btn_rolepage_xpath).click()
+
 
 @then('Role page should successfully load')
 def verify_rolepage(context):

@@ -3,6 +3,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 import random
+import openpyxl
+import XLUtils
+
 
 UserManager_xpath = "//*[@id='four']/span"
 btn_new_xpath = "//*[contains(text(),'New')]"
@@ -11,6 +14,7 @@ btn_checkmark2_xpath = "//*[@id='tblUser']/tbody/tr[2]/td[1]/label/span"
 btn_edit_xpath = "//*[contains(text(),'Edit')]"
 btn_delete_xpath = "//*[@id='btn-userdelete']"
 btn_deletepopup_xpath = "//*[@id='btn-delete-user']"
+user_info_path = "features/Data Driven Reports/user_info.xlsx"
 
 
 @then('navigate to User Manager Page')
@@ -123,3 +127,35 @@ def verify_generalprop(context):
 
 
 
+
+@then('Get the data from the excel')
+def get_data(context):
+
+   path = user_info_path
+
+   rows = XLUtils.getRowCount(path, 'Sheet1')
+
+   for r in range(2, rows+1):
+       username = XLUtils.readData(path, "Sheet1", r, 1)
+       password = XLUtils.readData(path, "Sheet1", r, 2)
+
+       context.driver.find_element(By.ID, "userName").clear()
+       time.sleep(1)
+       context.driver.find_element(By.ID, "userName").send_keys(username)
+       time.sleep(1)
+       context.driver.find_element(By.ID, "password").clear()
+       time.sleep(1)
+       context.driver.find_element(By.ID, "password").send_keys(password)
+
+       context.driver.find_element(By.XPATH, btn_save_xpath).click()
+
+       if context.driver.page_source=="Updated Successfully.":
+           print("created successfully")
+           time.sleep(2)
+           XLUtils.writeData(path, "Sheet1", r, 3, "created successfully")
+       else:
+           print("test failed")
+           time.sleep(2)
+           XLUtils.writeData(path, "Sheet1", r, 4, "test failed")
+
+       context.driver.find_element(By.XPATH, btn_new_xpath).click()

@@ -2,8 +2,7 @@ from behave import fixture, then
 
 def before_feature(context, feature):
      print("Runs Before Each Feature")
-#
-#
+
 # def after_feature(context, feature):
 #     print("Run After Each Feature")
 #
