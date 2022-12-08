@@ -15,6 +15,7 @@ btn_edit_xpath = "//*[contains(text(),'Edit')]"
 btn_delete_xpath = "//*[contains(text(),'Delete')]"
 btn_deletepopup_xpath = "//*[@id='btn-delete-user']"
 btn_checkmark2_xpath = "//*[@id='tblUser']/tbody/tr[2]/td[1]/label/span"
+user_info_path = "features/Data Driven Reports/user_info.xlsx"
 
 
 @then('navigate to User Manager Page')
@@ -128,7 +129,7 @@ def verify_generalprop(context):
 @then('Get the data from the excel')
 def get_data(context):
 
-   path = "C:\Downloads\selenium_BDD.xlsx"
+   path = user_info_path
 
    rows = XLUtils.getRowCount(path, 'Sheet1')
 

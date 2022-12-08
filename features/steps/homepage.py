@@ -14,6 +14,7 @@ Optionspage_xpath = "//*[@id='pills-contact-tab']"
 text_ppt_xpath = "/html/body/nav/a/span"
 btn_logout_xpath = "//*[@id='userDropdown']"
 btn_out_xpath = "//*[@id='adminicon']/ul/li/div/a"
+user_info_path = "features/Data Driven Reports/user_info.xlsx"
 
 
 @given('I launch chrome browser')
@@ -119,7 +120,7 @@ def option_contents(context):
 
 @then('Read the data from the excel sheet')
 def multiple_user(context):
-    path = "C:\Downloads\selenium_BDD.xlsx"
+    path = user_info_path
 
     rows = XLUtils.getRowCount(path, 'Sheet1')
 
@@ -130,7 +131,7 @@ def multiple_user(context):
         context.driver.find_element(By.ID, "UserName").clear()
         context.driver.find_element(By.ID, "UserName").send_keys(username)
 
-        time.sleep(2)
+        time.sleep(1)
         context.driver.find_element(By.ID, "Password").clear()
         context.driver.find_element(By.ID, "Password").send_keys(password)
 
@@ -146,6 +147,7 @@ def multiple_user(context):
             time.sleep(2)
             XLUtils.writeData(path, "Sheet1", r, 3, "test failed")
 
+        time.sleep(1)
         context.driver.find_element(By.XPATH, btn_logout_xpath).click()
         time.sleep(1)
         context.driver.find_element(By.XPATH, btn_out_xpath).click()
