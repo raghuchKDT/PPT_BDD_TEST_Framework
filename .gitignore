@@ -4,3 +4,7 @@
 .git/
 .idea/
 allure-results/
+reports/
+%allure-result-folder%/
+
+
